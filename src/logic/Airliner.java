@@ -28,6 +28,18 @@ public class Airliner extends Airplan implements PassengersGetOut, LoadPassenger
     }
 
 
+    @Override
+    public String toString() {
+        return "Airliner{" +
+                "maxNumberOfPassengers=" + maxNumberOfPassengers +
+                ", numberOfPassengers=" + numberOfPassengers +
+                " , weight= " + weight +
+                " , weight on board=" + weightOnBoard +
+                " , max tank volume=" + maxTankVolume +
+                " , fly distance=" + flyDistance+
+                '}';
+    }
+
     /**public void destroyTwinTowers (LocalDate date)
      {
 
@@ -40,6 +52,7 @@ public class Airliner extends Airplan implements PassengersGetOut, LoadPassenger
         this.weightOnBoard = weightOnBoard;
         this.maxTankVolume = maxTankVolume;
         maxNumberOfPassengers = weightOnBoard/100;
+        flyDistance = (maxTankVolume*1000)/(weight+weightOnBoard+1);
     }
     public int getMaxNumberOfPassengers() {
         return maxNumberOfPassengers;

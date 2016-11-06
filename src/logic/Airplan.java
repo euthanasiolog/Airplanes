@@ -3,18 +3,19 @@ package logic;
 /**
  * Created by Piatrok on 03.11.16.
  */
-public class Airplan implements RefuelAirplan, DrainFuel, Comparable{
-
+public class Airplan implements RefuelAirplan, DrainFuel{
     /**
      * вес пустого самолета (вес топлива не учитывается)
      */
-    int weight;
-
+    protected int weight;
+    /**
+     * вес на борту
+     */
+    protected int weightOnBoard;
     /**
      * максимальный объем бака
      */
-    int maxTankVolume;
-
+    protected int maxTankVolume;
     /**
      * гетеры и сетеры для всего
      */
@@ -57,20 +58,12 @@ public class Airplan implements RefuelAirplan, DrainFuel, Comparable{
     public void setIsFly(String isFly) {
         this.isFly = isFly;
     }
-
-
-
-    /**
-     * вес на борту
-     */
-    int weightOnBoard;
-
     /**
      * дистанция полета, высчитываемая по секретной авиационной формуле
      */
-    private int flyDistance = (maxTankVolume*1000)/(weight+weightOnBoard);
+    protected int flyDistance;
 
-    int getFlyDistance() {
+    public int getFlyDistance() {
         return flyDistance;
     }
 
@@ -97,32 +90,22 @@ public class Airplan implements RefuelAirplan, DrainFuel, Comparable{
         str.append("NotFly");
         return str.toString();
     }
-
-
     /**
      * Устанавливаем количество топлива равным нулю
      */
-
     @Override
     public void drainFuel() {
         this.fuelVolume = 0;
     }
-
     /**
      * добавляем в бак топливо
      * @param n - количество добавляемого топлива
      */
-
     @Override
     public void refuel(int n) {
         this.fuelVolume += n;
         if (fuelVolume>maxTankVolume){
             fuelVolume=maxTankVolume;
         }
-    }
-    public int compareTo(Object o) {
-        String flyDistance = String.valueOf(this.flyDistance);
-        String comparedFlyDistance = String.valueOf(((Airplan) o).getFlyDistance());
-        return flyDistance.compareTo(comparedFlyDistance);
     }
 }

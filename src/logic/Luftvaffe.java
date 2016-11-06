@@ -12,34 +12,10 @@ public class Luftvaffe extends Corporation
     private static Scanner sc;
     private static int a, b, c;
 
-
-    public static void makeBomber()
-    {
-        /**
-         * создаем метод для создания бомбардировщика, параметры вводим вручную
-         */
-        sc = new Scanner(System.in);
-        geschwader = new ArrayList<>();
-        a = sc.nextInt();
-        b = sc.nextInt();
-        c = sc.nextInt();
-        Airplan bomber = new Bomber(a, b, c);
-        geschwader.add(bomber);
-    }
-    /**
-     * создаем метод для создания пассажирского самолета, параметры вводим вручную
-     */
-    public static void makeAirliner() {
-        Airplan airliner = new Airliner(a, b, c);
-        geschwader.add(airliner);
-    }
-
     /**
      * тут написал сортировку по дальности полета.
      */
-    int l = geschwader.size();
-
-    public void sortArrayOfPlanes()
+    int l = geschwader.size();    public void sortArrayOfPlanes()
     {
         for (int i = 0; i < l - 1; i++)
         {
@@ -54,7 +30,6 @@ public class Luftvaffe extends Corporation
             geschwader.set(i, geschwader.get(min));
         }
     }
-
     /**
      * метод для условной бомбардировки
      */
@@ -70,7 +45,6 @@ public class Luftvaffe extends Corporation
         } else System.out.println("Моя не может бомбить");
 
     }
-
     /**
      * метод для условной перевозки пассажиров
      */
@@ -86,8 +60,6 @@ public class Luftvaffe extends Corporation
         } else System.out.println("Моя не может возить человеков");
 
     }
-
-
 
     @Override
     void setName (String companyName){

@@ -7,14 +7,11 @@ public class Bomber extends Airplan implements boom, LoadBombs
 {
     private int numberOfBombs;
 
-
-
     private int maxNumberOfBombs;
 
     public int getNumberOfBombs() {
         return numberOfBombs;
     }
-
     /**
      * скидываю по одной бомбы
      */
@@ -32,6 +29,7 @@ public class Bomber extends Airplan implements boom, LoadBombs
         this.maxTankVolume = maxTankVolume;
         this.maxNumberOfBombs = weightOnBoard/50;
         this.numberOfBombs = 0;
+        this.flyDistance = (maxTankVolume*1000)/(weight+weightOnBoard+1);
     }
     int getMaxNumberOfBombs() {
         return maxNumberOfBombs;
@@ -45,10 +43,23 @@ public class Bomber extends Airplan implements boom, LoadBombs
     }
 
     @Override
+    public String toString() {
+        return "Bomber{" +
+                "numberOfBombs=" + numberOfBombs +
+                ", maxNumberOfBombs=" + maxNumberOfBombs +
+                " , weight= " + weight +
+                " , weight on board=" + weightOnBoard +
+                " , max tank volume=" + maxTankVolume +
+                " , fly distance="+ flyDistance+
+                '}';
+    }
+
+    @Override
     public void loadBombs() {
         int j = getNumberOfBombs();
         do {
             numberOfBombs = j+1;
         }while (numberOfBombs < maxNumberOfBombs);
     }
+
 }
