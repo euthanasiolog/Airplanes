@@ -1,4 +1,8 @@
-package logic;
+package logic.Airplanes;
+
+import logic.Interfaces.LoadPassengers;
+import logic.Interfaces.PassengersGetOut;
+import logic.Main;
 
 /**
  * Created by Piatrok on 03.11.16.
@@ -16,33 +20,19 @@ public class Airliner extends Airplan implements PassengersGetOut, LoadPassenger
         this.numberOfPassengers = numberOfPassengers;
     }
 
-    /**
-     * разгружаю пассажиров по одному с самолета
-     */
-    @Override
-    public void passengersGetOut (){
-        int i = getNumberOfPassengers();
-        do {
-            numberOfPassengers = i - 1;
-        }while (i > 0);
-    }
-
 
     @Override
     public String toString() {
-        return "Airliner{" +
-                "maxNumberOfPassengers=" + maxNumberOfPassengers +
-                ", numberOfPassengers=" + numberOfPassengers +
-                " , weight= " + weight +
-                " , weight on board=" + weightOnBoard +
-                " , max tank volume=" + maxTankVolume +
-                " , fly distance=" + flyDistance+
+        return "Пссажирский №"+ (Main.airplanList.indexOf(this)+1) + "{" +
+                " максимально пассажиров: " + maxNumberOfPassengers +
+                ", пассажиров на борту: " + numberOfPassengers +
+                " , вес: " + weight +
+                " , дальность полёта: " + flyDistance+
                 '}';
     }
 
     /**public void destroyTwinTowers (LocalDate date)
      {
-
      if()
      }
      */
@@ -51,9 +41,16 @@ public class Airliner extends Airplan implements PassengersGetOut, LoadPassenger
         this.weight = weight;
         this.weightOnBoard = weightOnBoard;
         this.maxTankVolume = maxTankVolume;
+        /**
+         * максимальное число высчитываем из средней массы пассажира(с грузом)
+         */
         maxNumberOfPassengers = weightOnBoard/100;
+        /**
+         * а вот дальность полета рассчитывается по секретной авиационной формуле
+         */
         flyDistance = (maxTankVolume*1000)/(weight+weightOnBoard+1);
     }
+
     public int getMaxNumberOfPassengers() {
         return maxNumberOfPassengers;
     }
@@ -65,13 +62,23 @@ public class Airliner extends Airplan implements PassengersGetOut, LoadPassenger
             numberOfPassengers = maxNumberOfPassengers;
         }
     }
+
     @Override
     public void loadPassengers (){
-        int j = getMaxNumberOfPassengers();
+        int j = getNumberOfPassengers();
         do {
-            numberOfPassengers = j+1;
-        }while (numberOfPassengers < maxNumberOfPassengers);
-
+            numberOfPassengers = j + 1;
+        }while (numberOfPassengers == maxNumberOfPassengers);
     }
+    @Override
+    /**
+     * разгружаю пассажиров по одному с самолета
+     */
 
+    public void passengersGetOut (){
+        int i = getNumberOfPassengers();
+        do {
+            numberOfPassengers = i - 1;
+        }while (i == 0);
+    }
 }

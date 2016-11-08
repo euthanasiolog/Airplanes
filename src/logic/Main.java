@@ -4,8 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import logic.Airplanes.Airplan;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,16 +15,17 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
+
         Parent root = FXMLLoader.load(getClass().getResource("../view/sample.fxml"));
 
-        Scene scene = new Scene(root, 300, 550);
+        Scene scene = new Scene(root, 1000, 600);
         stage.setTitle("Hi!");
         stage.setScene(scene);
         stage.show();
 
         airplanList = new ArrayList<>();
-
     }
+
     public static String printPlanes (){
         String s = "";
         for (Airplan airplan : airplanList){

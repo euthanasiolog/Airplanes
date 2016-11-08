@@ -1,21 +1,29 @@
-package logic;
+package logic.Airplanes;
+
+import logic.Interfaces.DrainFuel;
+import logic.Interfaces.RefuelAirplan;
 
 /**
  * Created by Piatrok on 03.11.16.
  */
-public class Airplan implements RefuelAirplan, DrainFuel{
+public class Airplan implements RefuelAirplan, DrainFuel {
+
     /**
-     * вес пустого самолета (вес топлива не учитывается)
+     * вес пустого самолета (вес топлива не учитывается, у нас проработана физика четко)
+     * а ещё мы забили на разницу между весом и массой, прости, Ньютон!
      */
-    protected int weight;
+    int weight;
+
     /**
      * вес на борту
      */
-    protected int weightOnBoard;
+    int weightOnBoard;
+
     /**
      * максимальный объем бака
      */
-    protected int maxTankVolume;
+    int maxTankVolume;
+
     /**
      * гетеры и сетеры для всего
      */
@@ -58,8 +66,9 @@ public class Airplan implements RefuelAirplan, DrainFuel{
     public void setIsFly(String isFly) {
         this.isFly = isFly;
     }
+
     /**
-     * дистанция полета, высчитываемая по секретной авиационной формуле
+     * дистанция полета
      */
     protected int flyDistance;
 
@@ -78,15 +87,16 @@ public class Airplan implements RefuelAirplan, DrainFuel{
     private String isFly="noT fly";
 
     /**
-     * Заставляет самолет полететь
+     * Заставляет самолет полететь, не знаю как это будет работать и зачем это надо(
      * @return состояние самолета
      */
-    private StringBuilder str = new StringBuilder();
-    String fly (){
+    StringBuilder str = new StringBuilder();
+    public String fly (){
         str.append("Fly");
         return str.toString();
     }
-    String notFly (){
+
+    public String notFly (){
         str.append("NotFly");
         return str.toString();
     }
