@@ -24,6 +24,7 @@ public class Bomber extends Airplan implements boom, LoadBombs
         int i = getNumberOfBombs();
         do{
             numberOfBombs = i - 1;
+
         }while (i == 0);
     }
 
@@ -31,6 +32,7 @@ public class Bomber extends Airplan implements boom, LoadBombs
         this.weight = weight;
         this.weightOnBoard = weightOnBoard;
         this.maxTankVolume = maxTankVolume;
+
         /**
          * рассчитываем количество бомб исходя из веса бомбы (50)
          */

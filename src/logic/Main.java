@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import logic.Airplanes.Airplan;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,7 @@ public class Main extends Application {
     public static List<Airplan> airplanList;
 
     @Override
-    public void start(Stage stage) throws Exception{
+    public void start(Stage stage) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("../view/sample.fxml"));
 
@@ -22,8 +24,9 @@ public class Main extends Application {
         stage.setTitle("Hi!");
         stage.setScene(scene);
         stage.show();
-
+        scene.getStylesheets().add((getClass().getResource("../style/style.css")).toExternalForm());
         airplanList = new ArrayList<>();
+
     }
 
     public static String printPlanes (){
