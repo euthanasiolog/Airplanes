@@ -6,14 +6,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import logic.Airplanes.Airplan;
+import logic.Connection.AirplanesConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main extends Application {
     public static List<Airplan> airplanList;
+
+
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -26,13 +31,17 @@ public class Main extends Application {
         stage.show();
         scene.getStylesheets().add((getClass().getResource("../style/style.css")).toExternalForm());
         airplanList = new ArrayList<>();
+        AirplanesConnection ac = new AirplanesConnection();
+        ac.getStatement();
+        ac.bomberFromDB();
+        ac.airlinersFromDB();
 
     }
 
-    public static String printPlanes (){
+    public static String printPlanes() {
         String s = "";
-        for (Airplan airplan : airplanList){
-            s += airplan.toString()+'\n';
+        for (Airplan airplan : airplanList) {
+            s += airplan.toString() + '\n';
         }
         return s;
     }
