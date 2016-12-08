@@ -33,8 +33,8 @@ public class Main extends Application {
         airplanList = new ArrayList<>();
         AirplanesConnection ac = new AirplanesConnection();
         ac.getStatement();
-        ac.bomberFromDB();
-        ac.airlinersFromDB();
+       ac.bomberFromDB();
+       ac.airlinersFromDB();
 
     }
 

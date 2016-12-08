@@ -27,7 +27,7 @@
     -fx-base: #1d1d1d;
     -fx-control-inner-background: #1d1d1d;
     -fx-background-color: #1d1d1d;
-    -fx-table-cell-border-color: transparent;
+
     -fx-table-header-border-color: transparent;
     -fx-padding: 5;
 }
@@ -117,7 +117,7 @@
 .button:focused {
     -fx-border-color: white, white;
     -fx-border-width: 1, 1;
-    -fx-border-style: solid, (1, 1);
+
     -fx-border-radius: 0, 0;
     -fx-border-insets: 1 1 1 1, 0;
 }
