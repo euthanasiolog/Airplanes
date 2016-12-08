@@ -7,11 +7,12 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
+
 
 
 /**
  * Created by Piatrok on 05.12.2016.
+ * класс для создания соединения
  */
 public class AirplanesConnection {
 
@@ -38,6 +39,8 @@ public class AirplanesConnection {
         }
         return statement;
     }
+
+    //метод для добавления пассажирских самолетов из БД
     public void airlinersFromDB () throws SQLException {
         resultSetA = statement.executeQuery(queryAirliners);
         while (resultSetA.next()){
@@ -47,7 +50,7 @@ public class AirplanesConnection {
             Main.airplanList.add(new Airliner(weight, weightOnBoard, maxTankVolume));
         }
     }
-
+// метод для добавления бомбардировщиков из БД
     public void bomberFromDB () throws SQLException {
         resultSetB = statement.executeQuery(queryBomber);
         while (resultSetB.next()){
@@ -57,6 +60,8 @@ public class AirplanesConnection {
             Main.airplanList.add(new Bomber(weight, weightOnBoard, maxTankVolume));
         }
     }
+
+  //  методы для занесения созданных самолетов в БД, почему-то не работает
     public void insertAirliner(String insertAirliner) throws SQLException {
         statement.executeUpdate(insertAirliner);
     }
