@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.VBox?>
+<GridPane hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.65"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.Controller" fx:id="gridPane">
+    <padding><Insets top = "25" right="25" bottom="10" left="25"/> </padding>
+
+    <VBox GridPane.rowIndex="1" GridPane.columnIndex="0" spacing="10">
+
+    <Label text="Luftvaffe, 3 reich inc."/>
+
+    <Button text="Сделать бомбардировщик"  alignment="BOTTOM_LEFT" onAction="#createBomber"/>
+
+    <Label text="Вес" />
+
+    <TextField fx:id="weight"/>
+
+    <Label text="Грузоподъёмность"/>
+
+    <TextField fx:id="weightOnBoard"/>
+
+    <Label text="Емкость бака" />
+
+    <TextField fx:id="maxTankVolume"/>
+
+    <Label text="        "/>
+
+    <Button text="Сделать пассажирский самолёт" alignment="BOTTOM_LEFT" onAction="#createAirliner"/>
+
+    <Label text="Вес"/>
+
+    <TextField  fx:id="weightA"/>
+
+    <Label text="Грузоподъёмность"/>
+
+    <TextField  fx:id="weightOnBoardA"/>
+
+    <Label text="Ёмкость бака" />
+
+    <TextField fx:id="maxTankVolumeA"/>
+    </VBox>
+
+    <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" spacing="10">
+
+    <Button text="Сортировать по дальности полёта" alignment="BOTTOM_LEFT" onAction="#sortAirplans"/>
+
+    <Button text="Бомбить!" alignment="BOTTOM_LEFT" onAction="#bombing"/>
+
+    <Label text="номер самолета"/>
+
+    <TextField fx:id="numberOfPlaneBombing"/>
+
+    <Text fx:id="bombingOk"/>
+
+    <Button text="Перевезти пассажиров!" alignment="BOTTOM_LEFT" onAction="#flyWithPassengrs"/>
+
+    <Label text="номер самолета"/>
+
+    <TextField fx:id="numberOfPlaneFly"/>
+
+    <Text fx:id="flyOk"/>
+    </VBox>
+
+    <VBox GridPane.rowIndex="1" GridPane.columnIndex="2" spacing="10">
+
+        <Text fx:id="planes" />
+
+    </VBox>
+
+</GridPane>
